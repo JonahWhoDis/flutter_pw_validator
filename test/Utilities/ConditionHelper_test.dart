@@ -14,7 +14,6 @@ void main() {
         () {
       // arrange
       int minLength = 10;
-      int normalCharCount = 1;
       int uppercaseCharCount = 0;
       int lowercaseCharCount = 0;
       int numericCharCount = 1;
@@ -23,8 +22,8 @@ void main() {
       int expectedResult = 3;
 
       // act
-      conditionsHelper.setSelectedCondition(minLength, normalCharCount,
-          uppercaseCharCount, lowercaseCharCount, numericCharCount, specialCharCount);
+      conditionsHelper.setSelectedCondition(minLength, uppercaseCharCount,
+          lowercaseCharCount, numericCharCount, specialCharCount);
       int actualResult = conditionsHelper.getter()!.length;
 
       // assert
@@ -35,7 +34,6 @@ void main() {
         () {
       // arrange
       int minLength = 10;
-      int normalCharCount = 3;
       int uppercaseCharCount = 2;
       int lowercaseCharCount = 2;
       int numericCharCount = 2;
@@ -44,8 +42,8 @@ void main() {
       int expectedResult = 6;
 
       // act
-      conditionsHelper.setSelectedCondition(minLength, normalCharCount,
-          uppercaseCharCount, lowercaseCharCount, numericCharCount, specialCharCount);
+      conditionsHelper.setSelectedCondition(minLength, uppercaseCharCount,
+          lowercaseCharCount, numericCharCount, specialCharCount);
       int actualResult = conditionsHelper.getter()!.length;
 
       // assert

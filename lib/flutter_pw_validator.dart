@@ -12,7 +12,6 @@ import 'Utilities/SizeConfig.dart';
 
 class FlutterPwValidator extends StatefulWidget {
   final int minLength,
-      normalCharCount,
       uppercaseCharCount,
       lowercaseCharCount,
       numericCharCount,
@@ -33,9 +32,8 @@ class FlutterPwValidator extends StatefulWidget {
       required this.controller,
       this.uppercaseCharCount = 0,
       this.lowercaseCharCount = 0,
-      this.numericCharCount = 0,
+      this.numericCharCount = 1,
       this.specialCharCount = 0,
-      this.normalCharCount = 0,
       this.defaultColor = MyColors.gray,
       this.successColor = MyColors.green,
       this.failureColor = MyColors.red,
@@ -61,7 +59,6 @@ class FlutterPwValidatorState extends State<FlutterPwValidator> {
 
   /// Variables that hold current condition states
   dynamic _hasMinLength,
-      _hasMinNormalChar,
       _hasMinUppercaseChar,
       _hasMinLowercaseChar,
       _hasMinNumericChar,
@@ -80,13 +77,6 @@ class FlutterPwValidatorState extends State<FlutterPwValidator> {
         widget.controller,
         widget.translatedStrings.atLeast,
         _hasMinLength);
-
-    _hasMinNormalChar = _conditionsHelper.checkCondition(
-        widget.normalCharCount,
-        _validator.hasMinNormalChar,
-        widget.controller,
-        widget.translatedStrings.normalLetters,
-        _hasMinNormalChar);
 
     _hasMinUppercaseChar = _conditionsHelper.checkCondition(
         widget.uppercaseCharCount,
@@ -144,7 +134,6 @@ class FlutterPwValidatorState extends State<FlutterPwValidator> {
     /// Sets user entered value for each condition
     _conditionsHelper.setSelectedCondition(
         widget.minLength,
-        widget.normalCharCount,
         widget.uppercaseCharCount,
         widget.lowercaseCharCount,
         widget.numericCharCount,
@@ -168,19 +157,18 @@ class FlutterPwValidatorState extends State<FlutterPwValidator> {
       width: SizeConfig.width,
       height: widget.height,
       child: new Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           new Flexible(
             flex: 3,
             child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Iterate through the conditions map values to check if there is any true values then create green ValidationBarComponent.
                 for (bool value in _conditionsHelper.getter()!.values)
                   if (value == true)
                     new ValidationBarComponent(color: widget.successColor),
-
                 // Iterate through the conditions map values to check if there is any false values then create red ValidationBarComponent.
                 for (bool value in _conditionsHelper.getter()!.values)
                   if (value == false)
@@ -198,8 +186,6 @@ class FlutterPwValidatorState extends State<FlutterPwValidator> {
                   int? value;
                   if (entry.key == widget.translatedStrings.atLeast)
                     value = widget.minLength;
-                  if (entry.key == widget.translatedStrings.normalLetters)
-                    value = widget.normalCharCount;
                   if (entry.key == widget.translatedStrings.uppercaseLetters)
                     value = widget.uppercaseCharCount;
                   if (entry.key == widget.translatedStrings.lowercaseLetters)

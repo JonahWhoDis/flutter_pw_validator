@@ -28,7 +28,8 @@ class AppHome extends StatelessWidget {
   final TextEditingController controller = new TextEditingController();
 
   ///Passing a key to access the validate function
-  final GlobalKey<FlutterPwValidatorState> validatorKey = GlobalKey<FlutterPwValidatorState>();
+  final GlobalKey<FlutterPwValidatorState> validatorKey =
+      GlobalKey<FlutterPwValidatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,47 +40,46 @@ class AppHome extends StatelessWidget {
           children: [
             new Flexible(flex: 5, child: new FlutterLogo(size: 200)),
             Flexible(
-              flex: 7,
-              child: SingleChildScrollView(
-                child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                    child: new TextField(
+                flex: 7,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                        child: new TextField(
+                            controller: controller,
+                            decoration: new InputDecoration(
+                                hintText: "Password",
+                                border: new OutlineInputBorder(
+                                    borderSide: BorderSide()))),
+                      ),
+                      new SizedBox(
+                        height: 5,
+                      ),
+                      new FlutterPwValidator(
+                        key: validatorKey,
                         controller: controller,
-                        decoration: new InputDecoration(
-                            hintText: "Password",
-                            border: new OutlineInputBorder(
-                                borderSide: BorderSide()))),
+                        minLength: 8,
+                        uppercaseCharCount: 2,
+                        lowercaseCharCount: 3,
+                        numericCharCount: 3,
+                        specialCharCount: 1,
+                        width: 400,
+                        height: 200,
+                        onSuccess: () {
+                          print("MATCHED");
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              new SnackBar(
+                                  content: new Text("Password is matched")));
+                        },
+                        onFail: () {
+                          print("NOT MATCHED");
+                        },
+                      ),
+                    ],
                   ),
-                  new SizedBox(
-                    height: 5,
-                  ),
-                  new FlutterPwValidator(
-                    key: validatorKey,
-                    controller: controller,
-                    minLength: 8,
-                    uppercaseCharCount: 2,
-                    lowercaseCharCount: 3,
-                    numericCharCount: 3,
-                    specialCharCount: 1,
-                    normalCharCount: 3,
-                    width: 400,
-                    height: 200,
-                    onSuccess: () {
-                      print("MATCHED");
-                      ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
-                          content: new Text("Password is matched")));
-                    },
-                    onFail: () {
-                      print("NOT MATCHED");
-                    },
-                  ),
-                ],
-              ),
-              )
-            )
+                ))
           ],
         ),
       ),
