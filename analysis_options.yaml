@@ -1,0 +1,49 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+# include: package:all_lint_rules_community/all.yaml
+
+analyzer:
+  language:
+    # strict-casts: true # enable strict cast checks
+  exclude: [build/**, lib/**.freezed.dart, lib/**.g.dart]
+  errors:
+    todo: ignore
+    # Treat missing returns as an error, not as a hint or a warning.
+    missing_return: error
+    # Treat missing required parameters as an error, not as a hint or a warning.
+    missing_required_param: error
+     # DON'T assign new values to parameters of methods or functions.
+    # https://dart-lang.github.io/linter/lints/parameter_assignments.html
+    parameter_assignments: warning
+
+
+# LINTER Preferences
+#
+# Explicitly disable only the rules we do not want.
+# This way, if a new rule is added to the linter, it will be enabled by default.
+linter:
+  rules:
+    prefer_single_quotes: true
+    sort_constructors_first: true
+    avoid_classes_with_only_static_members: false # remove this a soon as possible
+    sort_pub_dependencies: false
+    # Documentation is now required
+    public_member_api_docs: true # document all public members
+    prefer_const_constructors: true
+    slash_for_doc_comments: true
+    curly_braces_in_flow_control_structures: true
+    camel_case_types: true # class names should be camel case
+    parameter_assignments: true # avoid assigning parameters
+    avoid_empty_else: true
+
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
