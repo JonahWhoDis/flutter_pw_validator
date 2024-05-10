@@ -1,19 +1,19 @@
-import 'package:flutter_pw_validator/Utilities/Validator.dart';
+import 'package:flutter_pw_validator/Utilities/validator.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group("Tests for hasMinLength() component", () {
+  group('Tests for hasMinLength() component', () {
     late Validator validator;
 
     setUp(() {
-      validator = new Validator();
+      validator = Validator();
     });
 
     test(
         'Should return True when minLength is 10 and password has 10 character',
         () {
       // arrange
-      String password = "djgmksoldq";
+      String password = 'djgmksoldq';
       int minLength = 10;
       bool expectedResult = true;
 
@@ -28,7 +28,7 @@ void main() {
         'Should return False when minLength is 10 and password has 5 character',
         () {
       // arrange
-      String password = "ksorn";
+      String password = 'ksorn';
       int minLength = 10;
       bool expectedResult = false;
 
@@ -43,7 +43,7 @@ void main() {
         'Should return True when minLength is 10 and password has 15 character',
         () {
       // arrange
-      String password = "sjdidmgldismaudt";
+      String password = 'sjdidmgldismaudt';
       int minLength = 10;
       bool expectedResult = true;
 
@@ -54,18 +54,18 @@ void main() {
       expect(actualResult, expectedResult);
     });
   });
-  group("Tests for hasMinUppercase() component", () {
+  group('Tests for hasMinUppercase() component', () {
     late Validator validator;
 
     setUp(() {
-      validator = new Validator();
+      validator = Validator();
     });
 
     test(
         'Should return True when uppercaseCount is 2 and password has 2 uppercase character',
         () {
       // arrange
-      String password = "djgmkSsoldqA";
+      String password = 'djgmkSsoldqA';
       int uppercaseCount = 2;
       bool expectedResult = true;
 
@@ -80,7 +80,7 @@ void main() {
         'Should return False when uppercaseCount is 5 and password has 3 uppercase character',
         () {
       // arrange
-      String password = "dTjgmkSsoldqA";
+      String password = 'dTjgmkSsoldqA';
       int uppercaseCount = 5;
       bool expectedResult = false;
 
@@ -95,7 +95,7 @@ void main() {
         'Should return True when uppercaseCount is 3 and password has 5 uppercase character',
         () {
       // arrange
-      String password = "dTjgmkSsoldqAsdsdRsdsU";
+      String password = 'dTjgmkSsoldqAsdsdRsdsU';
       int uppercaseCount = 5;
       bool expectedResult = true;
 
@@ -106,18 +106,18 @@ void main() {
       expect(actualResult, expectedResult);
     });
   });
-  group("Tests for hasMinLowercase() component", () {
+  group('Tests for hasMinLowercase() component', () {
     late Validator validator;
 
     setUp(() {
-      validator = new Validator();
+      validator = Validator();
     });
 
     test(
         'Should return True when lowercaseCount is 2 and password has 2 lowercase character',
         () {
       // arrange
-      String password = "abcDEF123";
+      String password = 'abcDEF123';
       int lowercaseCount = 3;
       bool expectedResult = true;
 
@@ -132,7 +132,7 @@ void main() {
         'Should return False when lowercaseCount is 5 and password has 3 lowercase character',
         () {
       // arrange
-      String password = "aBcDeFG123";
+      String password = 'aBcDeFG123';
       int lowercaseCount = 5;
       bool expectedResult = false;
 
@@ -147,7 +147,7 @@ void main() {
         'Should return True when lowercaseCount is 3 and password has 5 lowercase character',
         () {
       // arrange
-      String password = "abcdeFG123";
+      String password = 'abcdeFG123';
       int lowercaseCount = 3;
       bool expectedResult = true;
 
@@ -158,17 +158,17 @@ void main() {
       expect(actualResult, expectedResult);
     });
   });
-  group("Test for hasMinNumericChar() component", () {
+  group('Test for hasMinNumericChar() component', () {
     late Validator validator;
     setUp(() {
-      validator = new Validator();
+      validator = Validator();
     });
 
     test(
-        "Should return True when numericCount is 2 and password has 2 numeric character",
+        'Should return True when numericCount is 2 and password has 2 numeric character',
         () {
       // arrange
-      String password = "sdsdlkl2l;l;2";
+      String password = 'sdsdlkl2l;l;2';
       int numericCount = 2;
       bool expectedResult = true;
 
@@ -180,10 +180,10 @@ void main() {
     });
 
     test(
-        "Should return False when numericCount is 5 and password has 3 numeric character",
+        'Should return False when numericCount is 5 and password has 3 numeric character',
         () {
       // arrange
-      String password = "4sdsdlkl2l;l;2";
+      String password = '4sdsdlkl2l;l;2';
       int numericCount = 5;
       bool expectedResult = false;
 
@@ -195,10 +195,10 @@ void main() {
     });
 
     test(
-        "Should return True when numericCount is 3 and password has 5 numeric character",
+        'Should return True when numericCount is 3 and password has 5 numeric character',
         () {
       // arrange
-      String password = "4sdsdlkl2l;l;2iiiis1kkksd9";
+      String password = '4sdsdlkl2l;l;2iiiis1kkksd9';
       int numericCount = 3;
       bool expectedResult = true;
 
@@ -209,17 +209,17 @@ void main() {
       expect(actualResult, expectedResult);
     });
   });
-  group("Test for hasMinSpecialChar() component", () {
+  group('Test for hasMinSpecialChar() component', () {
     late Validator validator;
     setUp(() {
-      validator = new Validator();
+      validator = Validator();
     });
 
     test(
-        "Should return True when specialCount is 2 and password has 2 special character",
+        'Should return True when specialCount is 2 and password has 2 special character',
         () {
       // arrange
-      String password = "aaaaaa@aaaa@";
+      String password = 'aaaaaa@aaaa@';
       int specialCount = 2;
       bool expectedResult = true;
 
@@ -231,10 +231,10 @@ void main() {
     });
 
     test(
-        "Should return False when specialCount is 5 and password has 3 special character",
+        'Should return False when specialCount is 5 and password has 3 special character',
         () {
       // arrange
-      String password = "#aaaaaa@aaaa@";
+      String password = '#aaaaaa@aaaa@';
       int specialCount = 5;
       bool expectedResult = false;
 
@@ -246,10 +246,10 @@ void main() {
     });
 
     test(
-        "Should return True when specialCount is 3 and password has 5 special character",
+        'Should return True when specialCount is 3 and password has 5 special character',
         () {
       // arrange
-      String password = "#aaaaaa@aaaa-bbbb/ssss!";
+      String password = '#aaaaaa@aaaa-bbbb/ssss!';
       int specialCount = 3;
       bool expectedResult = true;
 
@@ -261,17 +261,17 @@ void main() {
     });
   });
 
-  group("Test for hasMinNormalChar() component", () {
+  group('Test for hasMinNormalChar() component', () {
     late Validator validator;
     setUp(() {
-      validator = new Validator();
+      validator = Validator();
     });
 
     test(
-        "Should return True when numericCount is 3, uppercaseCount 1 and password has 3 normal character",
+        'Should return True when numericCount is 3, uppercaseCount 1 and password has 3 normal character',
         () {
       // arrange
-      String password = "A123aa";
+      String password = 'A123aa';
       int normalCharCount = 3;
       bool expectedResult = true;
 
@@ -283,10 +283,10 @@ void main() {
     });
 
     test(
-        "Should return False when normalCharCount is 2 and password has 1 normal character",
+        'Should return False when normalCharCount is 2 and password has 1 normal character',
         () {
       // arrange
-      String password = "#123@45";
+      String password = '#123@45';
       int normalCharCount = 2;
       bool expectedResult = false;
 
@@ -298,10 +298,10 @@ void main() {
     });
 
     test(
-        "Should return True when normalCharCount is 3 and password has 5 normal character",
+        'Should return True when normalCharCount is 3 and password has 5 normal character',
         () {
       // arrange
-      String password = "#aAa123@aA";
+      String password = '#aAa123@aA';
       int normalCharCount = 3;
       bool expectedResult = true;
 

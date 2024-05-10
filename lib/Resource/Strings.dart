@@ -1,9 +1,20 @@
 /// Strings hold constant strings used across the package
 class FlutterPwValidatorStrings {
-  final String atLeast = "At least - character";
-  final String normalLetters = "- Letter";
-  final String uppercaseLetters = "- Uppercase letter";
-  final String lowercaseLetters = "- Lowercase letter";
-  final String numericCharacters = "- Numeric character";
-  final String specialCharacters = "- Special character";
+  /// At least - character
+  final String atLeast = 'At least - character';
+
+  /// Normal - Letter
+  final String normalLetters = '- Letter';
+
+  /// Uppercase letter
+  final String uppercaseLetters = '- Uppercase letter';
+
+  /// Lowercase letter
+  final String lowercaseLetters = '- Lowercase letter';
+
+  /// Numeric character
+  final String numericCharacters = '- Numeric character';
+
+  /// Special character
+  final String specialCharacters = '- Special character';
 }

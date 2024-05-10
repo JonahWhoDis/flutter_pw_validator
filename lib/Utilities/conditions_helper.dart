@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_pw_validator/Resource/Strings.dart';
+import 'package:flutter_pw_validator/Resource/strings.dart';
 
 /// This class helps to recognize user selected condition and check them
 class ConditionsHelper {
+  /// Constructor
   ConditionsHelper(this.strings);
 
+  /// Strings that will be shown to the user
   final FlutterPwValidatorStrings strings;
   Map<String, bool>? _selectedCondition;
 
@@ -28,17 +30,20 @@ class ConditionsHelper {
     /// If the userRequested Value is grater than 0 that means user select them and we have to check new value;
     if (userRequestedValue > 0) {
       newValue = validator(controller.text, userRequestedValue);
-    } else
+    } else {
       newValue = null;
+    }
 
-    if (newValue == null)
+    if (newValue == null) {
       return null;
-    else if (newValue != oldValue) {
+    } else if (newValue != oldValue) {
       _selectedCondition![key] = newValue;
       return newValue;
-    } else
+    } else {
       return oldValue;
+    }
   }
 
+  /// Getter for selected condition
   Map<String, bool>? getter() => _selectedCondition;
 }

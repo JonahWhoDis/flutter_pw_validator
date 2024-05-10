@@ -2,6 +2,9 @@
 class SizeConfig {
   SizeConfig._();
 
+  /// Width of the screen
   static double? width;
+
+  /// Height of the screen
   static double? height;
 }

@@ -1,13 +1,13 @@
-import 'package:flutter_pw_validator/Resource/Strings.dart';
-import 'package:flutter_pw_validator/Utilities/ConditionsHelper.dart';
+import 'package:flutter_pw_validator/Resource/strings.dart';
+import 'package:flutter_pw_validator/Utilities/conditions_helper.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group("Tests for setSelectedCondition() component", () {
+  group('Tests for setSelectedCondition() component', () {
     late ConditionsHelper conditionsHelper;
 
     setUp(() {
-      conditionsHelper = new ConditionsHelper(FlutterPwValidatorStrings());
+      conditionsHelper = ConditionsHelper(FlutterPwValidatorStrings());
     });
 
     test('Should _selectedCondition.length==3 when we have 3 condition > 0',
